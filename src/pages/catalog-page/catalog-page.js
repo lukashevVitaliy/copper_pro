@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom';
 
 import { CatalogFilters } from '../../components/catalog-filters';
+import { CatalogPanel } from '../../components/catalog-panel';
+import { CardItem } from '../../components/card-item';
+import { CatalogPagination } from '../../components/catalog-pagination';
 
 import './catalog-page.scss';
 
@@ -19,6 +22,19 @@ export const CatalogPage = () => {
 
 				<h2 className="catalog-page__title">Каталог</h2>
 				<CatalogFilters />
+				<CatalogPanel />
+				<div className="catalog-page__wrap">
+					<CardItem />
+					<CardItem />
+					<CardItem />
+					<CardItem />
+					<CardItem />
+					<CardItem />
+					<CardItem />
+					<CardItem />
+					<CardItem />
+				</div>
+				<CatalogPagination />
 			</div>
 		</div>
 

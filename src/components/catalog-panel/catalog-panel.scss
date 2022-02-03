@@ -1,0 +1,40 @@
+@import "../../styles/variables.scss";
+
+.catalog-panel {
+	margin: 40px 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	&__search {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 209px;
+		min-height: 29px;
+		border-bottom: 1px solid #000;
+		input {
+			padding: 5px 10px;
+			width: 194px;
+			font-weight: 600;
+			font-size: 20px;
+			border: none;
+			&::placeholder {
+				color: $main-text;
+			}
+		}
+	}
+	&__selected {
+		label {
+			font-weight: 600;
+			font-size: 20px;
+			margin-right: 18px;
+		}
+		select {
+			font-weight: 800;
+			font-size: 20px;
+			line-height: 19px;
+			color: #031412;
+			border: none;
+		}
+	}
+}

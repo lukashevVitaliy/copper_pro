@@ -1,5 +1,6 @@
 .catalog-page {
 	padding-top: 176px;
+	margin-bottom: 80px;
 	&__title {
 		font-family: Lighthaus;
 		font-style: normal;
@@ -7,5 +8,16 @@
 		font-size: 50px;
 		line-height: 53px;
 		margin: 23px 0 30px;
+	}
+	&__wrap {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(290px, 445px));
+		grid-template-rows: repeat(3, minmax(567px, auto));
+		grid-auto-rows: minmax(567px, auto);
+		column-gap: 30px;
+		row-gap: 44px;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 54px;
 	}
 }

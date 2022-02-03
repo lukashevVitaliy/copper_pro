@@ -1,0 +1,35 @@
+@import "../../styles/variables.scss";
+
+.catalog-pagination {
+	text-align: center;
+	&__menu {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	&__item {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-right: 9px;
+		width: 38px;
+		height: 48px;
+		border: 1px solid #b3b9b8;
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+	&__link {
+		font-weight: 600;
+		font-size: 25px;
+		line-height: 24px;
+		color: #b3b9b8;
+	}
+}
+
+.catalog-pagination__item.active {
+	background: linear-gradient(92.18deg, #5e3928 20.13%, #e4a16f 92.93%);
+	.catalog-pagination__link {
+		color: $text-white;
+	}
+}

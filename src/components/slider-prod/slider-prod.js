@@ -25,6 +25,7 @@ export const SliderProd = () => {
 	return (
 		<div className="slider-prod">
 			<Slider {...settings}>
+
 				<div className="slider-prod__item">
 					<div className="slider-prod__image">
 						<img src={EssentialOils} alt="Медный чайник с фарфоровой ручкой" />
@@ -44,6 +45,7 @@ export const SliderProd = () => {
 					</button>
 					<span className="slider-prod__sale">Sale</span>
 				</div>
+
 				<div className="slider-prod__item">
 					<div className="slider-prod__image">
 						<img src={Hydrolate} alt="Медный чайник с фарфоровой ручкой" />

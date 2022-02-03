@@ -1,0 +1,18 @@
+@import "../../styles/variables.scss";
+
+.footer {
+	min-height: 375px;
+	background: url("../../resources/bg/footer__bg.png") center/cover no-repeat;
+	padding: 80px 0 74px;
+	color: $text-white;
+	&__inner {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+	}
+	&__wrap {
+		display: flex;
+		justify-content: space-between;
+		width: 635px;
+	}
+}

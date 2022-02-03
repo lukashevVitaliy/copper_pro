@@ -1,0 +1,20 @@
+.catalog-footer {
+	&__title {
+		font-weight: 800;
+		font-size: 18px;
+		line-height: 17px;
+		margin-bottom: 15px;
+	}
+	&__list {
+		font-weight: 400;
+		margin-bottom: 15px;
+		cursor: pointer;
+	}
+	&__list:hover {
+		text-decoration: underline;
+	}
+}
+
+.catalog-footer__menu li:last-child {
+	margin-bottom: 0;
+}

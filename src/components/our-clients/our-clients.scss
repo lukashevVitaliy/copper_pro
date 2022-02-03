@@ -1,0 +1,46 @@
+@import "../../styles/variables.scss";
+
+.our-clients {
+	margin-bottom: 140px;
+	background: $text-white;
+	&__wrap {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+	}
+	&__desc {
+		max-width: 517px;
+		min-height: 204px;
+		&-title {
+			font-family: Lighthaus;
+			font-style: normal;
+			font-weight: 400;
+			font-size: 50px;
+			line-height: 53px;
+			margin-bottom: 23px;
+		}
+		&-text {
+			font-weight: 400;
+			font-size: 20px;
+			line-height: 25px;
+		}
+	}
+	&__counter {
+		max-width: 707px;
+		min-height: 262px;
+		&-title {
+			font-weight: 900;
+			font-size: 50px;
+			line-height: 48px;
+			margin-bottom: 25px;
+		}
+		&-quantity {
+			font-weight: 800;
+			font-size: 250px;
+			line-height: 241px;
+			color: transparent;
+			background-clip: text;
+			background-image: linear-gradient(to left, rgba(228, 161, 111, 1), rgba(94, 57, 40, 1));
+		}
+	}
+}

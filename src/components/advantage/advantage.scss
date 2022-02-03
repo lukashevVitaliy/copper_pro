@@ -1,0 +1,60 @@
+.advantage {
+	padding: 80px 0 75px;
+	background: url("../../resources/bg/grey-abstraction_bg.png") center/cover no-repeat;
+	&__title {
+		font-family: Lighthaus;
+		font-style: normal;
+		font-weight: 400;
+		font-size: 50px;
+		line-height: 37px;
+		text-align: center;
+		margin-bottom: 50px;
+	}
+	&__wrap {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(308px, auto));
+		grid-template-rows: repeat(2, minmax(225px, auto));
+		grid-auto-rows: minmax(225px, auto);
+		grid-gap: 30px;
+		justify-content: space-between;
+		align-items: center;
+	}
+	&__item {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		max-width: 308px;
+		min-height: 225px;
+	}
+	&__image {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 76px;
+		height: 76px;
+		background: linear-gradient(278.32deg, #0b3f37 -7.03%, #cb8d62 136.33%);
+		margin-bottom: 24px;
+	}
+	&__subtitle {
+		font-size: 20px;
+		line-height: 19px;
+		margin-bottom: 15px;
+	}
+	&__desc {
+		font-weight: 400;
+		margin-bottom: 15px;
+	}
+	&__link {
+		position: relative;
+		color: rgba(228, 161, 111, 1);
+		&::before {
+			content: "";
+			position: absolute;
+			transform: translateY(65%);
+			left: 105px;
+			width: 8px;
+			height: 8px;
+			background: url("../../resources/icons/down-chevron.svg") center/cover no-repeat;
+		}
+	}
+}

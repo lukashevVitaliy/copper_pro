@@ -1,0 +1,16 @@
+.contacts-footer {
+	&__title {
+		font-weight: 800;
+		font-size: 18px;
+		line-height: 17px;
+		margin-bottom: 15px;
+	}
+	&__address,
+	&__phone,
+	&__email {
+		font-style: normal;
+		font-weight: 400;
+		margin-bottom: 15px;
+		cursor: pointer;
+	}
+}

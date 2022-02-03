@@ -1,0 +1,14 @@
+.header-nav {
+	padding: 68px 0 63px;
+	&__list {
+		display: flex;
+		justify-content: space-between;
+		width: 570px;
+		&-link {
+			font-style: normal;
+			font-weight: 600;
+			font-size: 16px;
+			line-height: 15px;
+		}
+	}
+}

@@ -1,0 +1,39 @@
+@import "./reset.scss";
+@import "./fonts.scss";
+@import "./buttons.scss";
+@import "./variables.scss";
+
+html,
+body {
+	font-size: 14px;
+	line-height: 19px;
+	font-weight: 800;
+}
+
+body {
+	font-family: "Mont";
+	font-style: normal;
+	background: #fff;
+	overflow-x: hidden;
+	min-width: 20rem;
+}
+
+code {
+	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.app {
+	width: 100%;
+	margin: 0 auto;
+	color: $main-text;
+}
+
+a {
+	color: $text-white;
+}
+
+.container {
+	max-width: 1440px;
+	margin: 0 auto;
+	padding: 0 15px;
+}

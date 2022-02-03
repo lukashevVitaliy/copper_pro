@@ -1,0 +1,14 @@
+@import "./variables.scss";
+
+.btn {
+	display: block;
+	background: linear-gradient(92.18deg, #5e3928 20.13%, #e4a16f 92.93%);
+	padding: 16px 131px;
+	font-size: 18px;
+	line-height: 17px;
+	text-align: center;
+	color: $text-white;
+	&__center {
+		margin: 0 auto;
+	}
+}

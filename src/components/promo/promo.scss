@@ -1,0 +1,25 @@
+@import "../../styles/variables.scss";
+
+.promo {
+	padding: 80px 0;
+	margin-bottom: 80px;
+	min-height: 483px;
+	background: url("../../resources/bg/promo_bg.jpg") center/cover no-repeat;
+	&__condition {
+		font-family: Lighthaus;
+		font-style: normal;
+		font-weight: 400;
+		font-size: 140px;
+		line-height: 105px;
+		color: $text-white;
+		margin-bottom: 50px;
+	}
+	&__desc {
+		max-width: 530px;
+		font-weight: 600;
+		font-size: 35px;
+		line-height: 34px;
+		color: $text-white;
+		margin-bottom: 50px;
+	}
+}

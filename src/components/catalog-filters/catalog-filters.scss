@@ -1,0 +1,30 @@
+@import "../../styles/variables.scss";
+
+.catalog-filters {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-bottom: 40px;
+	border-bottom: 1px solid #ebebeb;
+	&__item {
+		position: relative;
+	}
+	&__image {
+		max-width: 327px;
+		min-height: 147px;
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: conver;
+		}
+	}
+	&__text {
+		position: absolute;
+		bottom: 10px;
+		left: 0;
+		right: 0;
+		font-size: 20px;
+		text-align: center;
+		color: $text-white;
+	}
+}

@@ -1,0 +1,31 @@
+.our-geografy {
+	padding: 80px 0;
+	margin-bottom: 80px;
+	background: url("../../resources/bg/grey-abstraction_bg.png") center/cover no-repeat;
+	&__wrap {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	&__info {
+		max-width: 365px;
+		min-height: 276px;
+	}
+	&__title {
+		font-family: Lighthaus;
+		font-style: normal;
+		font-weight: 400;
+		font-size: 50px;
+		line-height: 53px;
+		margin-bottom: 38px;
+	}
+	&__desc {
+		font-weight: 400;
+		font-size: 20px;
+		line-height: 25px;
+	}
+	&__map {
+		position: relative;
+		right: -110px;
+	}
+}

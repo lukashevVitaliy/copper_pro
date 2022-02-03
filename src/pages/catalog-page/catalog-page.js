@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { CatalogFilters } from '../../components/catalog-filters';
 import { CatalogPanel } from '../../components/catalog-panel';
 import { CardItem } from '../../components/card-item';
-import { CatalogPagination } from '../../components/catalog-pagination';
+import { Pagination } from '../../components/pagination';
 
 import './catalog-page.scss';
 
@@ -34,7 +34,7 @@ export const CatalogPage = () => {
 					<CardItem />
 					<CardItem />
 				</div>
-				<CatalogPagination />
+				<Pagination />
 			</div>
 		</div>
 

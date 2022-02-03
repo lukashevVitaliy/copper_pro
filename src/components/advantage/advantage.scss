@@ -46,7 +46,9 @@
 	}
 	&__link {
 		position: relative;
-		color: rgba(228, 161, 111, 1);
+		color: transparent;
+		background-clip: text;
+		background-image: linear-gradient(to left, rgba(228, 161, 111, 1), rgba(94, 57, 40, 1));
 		&::before {
 			content: "";
 			position: absolute;

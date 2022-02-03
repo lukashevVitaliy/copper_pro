@@ -1,6 +1,6 @@
 @import "../../styles/variables.scss";
 
-.catalog-pagination {
+.pagination {
 	text-align: center;
 	&__menu {
 		display: flex;
@@ -27,9 +27,9 @@
 	}
 }
 
-.catalog-pagination__item.active {
+.pagination__item.active {
 	background: linear-gradient(92.18deg, #5e3928 20.13%, #e4a16f 92.93%);
-	.catalog-pagination__link {
+	.pagination__link {
 		color: $text-white;
 	}
 }

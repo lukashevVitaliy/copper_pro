@@ -8,19 +8,19 @@ export const NavigateFooter = () => {
 			<h5 className="navigate-footer__title">Навигация</h5>
 			<ul className="navigate-footer__menu">
 				<li className="navigate-footer__list">
-					<Link to="#">Каталог</Link>
+					<Link to="catalog">Каталог</Link>
 				</li>
 				<li className="navigate-footer__list">
-					<Link to="#">Новости</Link>
+					<Link to="news">Новости</Link>
 				</li>
 				<li className="navigate-footer__list">
-					<Link to="#">Доставка</Link>
+					<Link to="delivery">Доставка</Link>
 				</li>
 				<li className="navigate-footer__list">
-					<Link to="#">О нас</Link>
+					<Link to="about">О нас</Link>
 				</li>
 				<li className="navigate-footer__list">
-					<Link to="#">Контакты</Link>
+					<Link to="contacts">Контакты</Link>
 				</li>
 			</ul>
 		</div>

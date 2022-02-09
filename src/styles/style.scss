@@ -37,3 +37,29 @@ a {
 	margin: 0 auto;
 	padding: 0 15px;
 }
+
+// breadcrumbs
+.breadcrumbs {
+	&__list {
+		display: flex;
+		overflow-x: auto;
+	}
+	&__item {
+		position: relative;
+		padding-right: 17px;
+	}
+	&__item:after {
+		content: "/";
+		position: absolute;
+		padding-left: 5px;
+	}
+	&__item:last-child:after {
+		display: none;
+	}
+	&__link {
+		font-weight: 600;
+		font-size: 18px;
+		line-height: 17px;
+		color: $main;
+	}
+}

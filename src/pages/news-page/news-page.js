@@ -14,7 +14,7 @@ export const NewsPage = () => {
 						<Link to="/" className="breadcrumbs__link">Главная</Link>
 					</li>
 					<li className="breadcrumbs__item">
-						<Link to="about" className="breadcrumbs__link">Новости</Link>
+						<Link to="/news" className="breadcrumbs__link">Новости</Link>
 					</li>
 				</ul>
 				<h1 className="news-page__title">Новости</h1>

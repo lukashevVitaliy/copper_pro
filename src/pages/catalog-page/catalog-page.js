@@ -16,7 +16,7 @@ export const CatalogPage = () => {
 						<Link to="/" className="breadcrumbs__link">Главная</Link>
 					</li>
 					<li className="breadcrumbs__item">
-						<Link to="about" className="breadcrumbs__link">Каталог</Link>
+						<Link to="/catalog" className="breadcrumbs__link">Каталог</Link>
 					</li>
 				</ul>
 

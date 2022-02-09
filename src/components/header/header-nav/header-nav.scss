@@ -1,3 +1,5 @@
+@import "../../../styles/variables.scss";
+
 .header-nav {
 	padding: 68px 0 63px;
 	&__list {
@@ -9,6 +11,12 @@
 			font-weight: 600;
 			font-size: 16px;
 			line-height: 15px;
+		}
+		&-link a:hover {
+			color: transparent;
+			background-clip: text;
+			background-image: linear-gradient(to left, rgba(228, 161, 111, 1), rgba(94, 57, 40, 1));
+			border-bottom: 1px solid rgba(94, 57, 40, 1);
 		}
 	}
 }

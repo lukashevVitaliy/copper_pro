@@ -16,10 +16,10 @@ export const CatalogPageItem = () => {
 						<Link to="/" className="breadcrumbs__link">Главная</Link>
 					</li>
 					<li className="breadcrumbs__item">
-						<Link to="about" className="breadcrumbs__link">Каталог</Link>
+						<Link to="/catalog" className="breadcrumbs__link">Каталог</Link>
 					</li>
 					<li className="breadcrumbs__item">
-						<Link to="about" className="breadcrumbs__link">Дистиллятор для получения гидролата 8л</Link>
+						<Link to="/catalog/:id" className="breadcrumbs__link">Дистиллятор для получения гидролата 8л</Link>
 					</li>
 				</ul>
 			</div>

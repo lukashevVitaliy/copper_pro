@@ -1,12 +1,12 @@
+@import "../../styles/variables.scss";
+
 .catalog-page {
 	padding-top: 176px;
 	margin-bottom: 80px;
 	&__title {
-		font-family: Lighthaus;
-		font-style: normal;
-		font-weight: 400;
-		font-size: 50px;
+		@extend %h2-title;
 		line-height: 53px;
+		text-align-last: left;
 		margin: 23px 0 30px;
 	}
 	&__wrap {

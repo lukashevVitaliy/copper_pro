@@ -1,0 +1,14 @@
+@import "../../styles/variables.scss";
+
+.catalog-reviews {
+	margin-top: 80px;
+	padding-bottom: 80px;
+	&__block {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	&__title {
+		@extend %h3-title;
+	}
+}

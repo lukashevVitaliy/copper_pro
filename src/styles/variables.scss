@@ -1,3 +1,26 @@
-$main-text: #031412;
-$text-white: #fff;
+$main: #031412;
+$white: #fff;
 $bordo: #9b0000;
+
+%h1-title {
+	font-family: Lighthaus;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 100px;
+	line-height: 75px;
+}
+%h2-title {
+	font-family: Lighthaus;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 50px;
+	line-height: 37px;
+	text-align: center;
+}
+%h3-title {
+	font-family: Lighthaus;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 40px;
+	line-height: 42px;
+}

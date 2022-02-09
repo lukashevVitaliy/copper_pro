@@ -1,13 +1,10 @@
+@import "../../styles/variables.scss";
+
 .advantage {
 	padding: 80px 0 75px;
 	background: url("../../resources/bg/grey-abstraction_bg.png") center/cover no-repeat;
 	&__title {
-		font-family: Lighthaus;
-		font-style: normal;
-		font-weight: 400;
-		font-size: 50px;
-		line-height: 37px;
-		text-align: center;
+		@extend %h2-title;
 		margin-bottom: 50px;
 	}
 	&__wrap {

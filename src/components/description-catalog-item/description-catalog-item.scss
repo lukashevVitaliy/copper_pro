@@ -1,0 +1,114 @@
+@import "../../styles/variables.scss";
+
+.description-catalog-item {
+	&__title {
+		max-width: 653px;
+		@extend %h3-title;
+		margin-bottom: 37px;
+	}
+	&__block {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding-bottom: 37px;
+		margin-bottom: 37px;
+		border-bottom: 1px solid #e6e8e7;
+	}
+	&__availability {
+		position: relative;
+		padding-left: 20px;
+		font-size: 16px;
+		line-height: 21px;
+		color: #4b7159;
+		&::before {
+			position: absolute;
+			content: "";
+			top: 2px;
+			left: 0;
+			background: url("../../resources/icons/checked.svg") center/cover no-repeat;
+			width: 13px;
+			height: 13px;
+		}
+	}
+	&__article {
+		font-family: Mont;
+		font-style: normal;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 21px;
+		span {
+			font-weight: 800;
+		}
+	}
+	&__subtitle {
+		font-weight: 800;
+		font-size: 16px;
+		line-height: 21px;
+		text-transform: uppercase;
+		margin-bottom: 15px;
+	}
+	&__desc {
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 21px;
+		padding-bottom: 37px;
+		margin-bottom: 37px;
+		border-bottom: 1px solid #e6e8e7;
+	}
+	&__wrapper {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(210px, auto));
+		grid-template-rows: repeat(2, minmax(43px, auto));
+		grid-auto-rows: minmax(43px, auto);
+		grid-gap: 30px;
+		align-items: center;
+		padding-bottom: 37px;
+		margin-bottom: 37px;
+		border-bottom: 1px solid #e6e8e7;
+	}
+	&__text {
+		font-weight: 600;
+		font-size: 35px;
+		line-height: 34px;
+	}
+	&__price {
+		text-align: right;
+		&-new {
+			font-weight: 800;
+			font-size: 45px;
+			line-height: 43px;
+			color: $bordo;
+			margin-right: 30px;
+		}
+		&-old {
+			position: relative;
+			font-weight: 600;
+			font-size: 25px;
+			line-height: 24px;
+			color: $main;
+			opacity: 0.5;
+			&::before {
+				content: "";
+				position: absolute;
+				top: 10px;
+				right: 0;
+				width: 105px;
+				height: 1px;
+				background: $main;
+				transform: rotate(13.8deg);
+			}
+		}
+	}
+	&__social {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 248px;
+	}
+	&__subject {
+		font-weight: 800;
+		font-size: 16px;
+		line-height: 21px;
+		text-transform: uppercase;
+	}
+}

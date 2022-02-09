@@ -2,7 +2,7 @@
 
 .footer-info {
 	width: 230px;
-	color: $text-white;
+	color: $white;
 	&__logo {
 		display: block;
 		width: 175px;
@@ -19,7 +19,7 @@
 		margin-bottom: 20px;
 	}
 	&__privacy-policy {
-		border-bottom: 1px solid $text-white;
+		border-bottom: 1px solid $white;
 		padding-bottom: 2px;
 	}
 }

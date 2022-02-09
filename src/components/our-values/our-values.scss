@@ -28,7 +28,7 @@
 		line-height: 109px;
 		text-align: right;
 		text-transform: uppercase;
-		color: $text-white;
+		color: $white;
 	}
 	&__desc {
 		max-width: 486px;
@@ -36,11 +36,9 @@
 	}
 	&__title {
 		max-width: 292px;
-		font-family: Lighthaus;
-		font-style: normal;
-		font-weight: 400;
-		font-size: 50px;
+		@extend %h2-title;
 		line-height: 53px;
+		text-align: left;
 		margin-bottom: 40px;
 	}
 	&__info {

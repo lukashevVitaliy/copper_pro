@@ -1,7 +1,7 @@
 @import "../../styles/variables.scss";
 
 .breadcrumbs__list a {
-	color: $main-text;
+	color: $main;
 }
 .breadcrumbs__list {
 	display: flex;
@@ -18,13 +18,9 @@
 		margin-top: 123px;
 	}
 	&__title {
-		font-family: Lighthaus;
-		font-style: normal;
-		font-weight: 400;
-		font-size: 100px;
-		line-height: 75px;
+		@extend %h1-title;
 		padding-bottom: 50px;
-		border-bottom: 1px solid $main-text;
+		border-bottom: 1px solid $main;
 		margin-bottom: 50px;
 	}
 	&__text {

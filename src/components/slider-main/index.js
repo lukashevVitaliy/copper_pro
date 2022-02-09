@@ -1,1 +1,1 @@
-export * from './slider-main';
+export * from './slider-main'

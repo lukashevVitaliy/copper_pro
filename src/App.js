@@ -6,8 +6,9 @@ import { Footer } from './components/footer';
 import { HomePage } from './pages/home-page';
 import { AboutPage } from './pages/about-page';
 import { CatalogPage } from './pages/catalog-page';
-import { NewsPage } from './pages/news-page';
 import { CatalogPageItem } from './pages/catalog-page-item';
+import { NewsPage } from './pages/news-page';
+import { NewsItemPage } from './pages/news-item-page';
 import { CartPage } from './pages/cart-page';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
 					<Route path="catalog" element={<CatalogPage />} />
 					<Route path="catalog/:id" element={<CatalogPageItem />} />
 					<Route path="news" element={<NewsPage />} />
+					<Route path="news/:id" element={<NewsItemPage />} />
 					<Route path="cart" element={<CartPage />} />
 				</Routes>
 				<Footer />

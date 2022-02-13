@@ -1,19 +1,20 @@
 import { BsHeart } from 'react-icons/bs';
 
-import EssentialOils from '../../resources/images/OurProduction/essential-oils.png';
+// import EssentialOils from '../../resources/images/OurProduction/essential-oils.png';
 import './card-item.scss';
 
-export const CardItem = () => {
+export const CardItem = ({ product }) => {
+	const { thumbnail, name, priceOld, priceNew, sale } = product;
 	return (
 		<div className="card-item">
 			<div className="card-item__image">
-				<img src={EssentialOils} alt="Медный чайник с фарфоровой ручкой" />
+				<img src={thumbnail} alt={name} />
 			</div>
 			<div className="card-item__desc">
-				<p className="card-item__text">Медный чайник с фарфоровой ручкой</p>
+				<p className="card-item__text">{name}</p>
 				<div className="card-item__inner">
-					<p className="card-item__price-old">2 000 грн.</p>
-					<p className="card-item__price-new">1 953 грн.</p>
+					{priceOld ? <p className="card-item__price-old">{priceOld} грн.</p> : null}
+					<p className="card-item__price-new">{priceNew} грн.</p>
 				</div>
 			</div>
 			<button className="card-item__like">
@@ -22,7 +23,7 @@ export const CardItem = () => {
 					className="card-item__like-icon"
 				/>
 			</button>
-			<span className="card-item__sale">Sale</span>
+			{sale ? <span className="card-item__sale">Sale</span> : null}
 		</div>
 	)
 }

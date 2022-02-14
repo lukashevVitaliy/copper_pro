@@ -1,12 +1,28 @@
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { BsHeart } from 'react-icons/bs';
+
+import { setCurrentProduct } from "../../store/reducers/productsSlice";
 
 // import EssentialOils from '../../resources/images/OurProduction/essential-oils.png';
 import './card-item.scss';
 
 export const CardItem = ({ product }) => {
+	const navigate = useNavigate();
+	const dispatch = useDispatch();
+
+	const handleClick = () => {
+		dispatch(setCurrentProduct(product));
+		navigate(`${product.id}`)
+	}
+
 	const { thumbnail, name, priceOld, priceNew, sale } = product;
+
 	return (
-		<div className="card-item">
+		<div
+			className="card-item"
+			onClick={handleClick}
+		>
 			<div className="card-item__image">
 				<img src={thumbnail} alt={name} />
 			</div>

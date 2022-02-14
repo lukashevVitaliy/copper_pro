@@ -18,10 +18,9 @@ export const CatalogPage = () => {
 	const { request } = useHttp();
 
 	useEffect(() => {
-		dispatch(productsFetching);
-		request("http://localhost:3001/data?limit=3")
-			// .then(data => console.log(data.products))
-			.then(data => dispatch(productsFetched(data.products)))
+		dispatch(productsFetching());
+		request("http://localhost:3001/products")
+			.then(data => dispatch(productsFetched(data)))
 			.catch(() => productsFetchingError())
 		// eslint-disable-next-line
 	}, [])
@@ -29,12 +28,12 @@ export const CatalogPage = () => {
 	if (productsLoadingStatus === 'loading') {
 		return <Spinner />
 	} else if (productsLoadingStatus === 'error') {
-		return <h5 className="catalog-page__error">Ошибка загрузки данных...</h5>
+		return <h5 className="error">Ошибка загрузки данных...</h5>
 	}
 
 	const renderProductsList = (arr) => {
 		if (arr.length === 0) {
-			return <h5 className="catalog-page__message">Товар отсутствует...</h5>
+			return <h5 className="message">Товар отсутствует...</h5>
 		}
 
 		return arr.map(product => {
@@ -45,7 +44,6 @@ export const CatalogPage = () => {
 	}
 
 	const elements = renderProductsList(products);
-	console.log(elements);
 
 	return (
 		<div className="catalog-page">
@@ -64,15 +62,6 @@ export const CatalogPage = () => {
 				<CatalogPanel />
 				<ul className="catalog-page__wrap">
 					{elements}
-					{/* <CardItem />
-					<CardItem />
-					<CardItem />
-					<CardItem />
-					<CardItem />
-					<CardItem />
-					<CardItem />
-					<CardItem />
-					<CardItem /> */}
 				</ul>
 				<Pagination />
 			</div>

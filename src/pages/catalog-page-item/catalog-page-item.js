@@ -1,3 +1,5 @@
+import { useSelector } from 'react-redux';
+
 import { Link } from 'react-router-dom';
 
 import { CatalogItem } from '../../components/catalog-item';
@@ -8,6 +10,10 @@ import { CatalogProductsInterest } from '../../components/catalog-products-inter
 import './catalog-page-item.scss';
 
 export const CatalogPageItem = () => {
+	const product = useSelector(state => state.products.currentProduct)
+
+	if (!product) return null;
+
 	return (
 		<div className="catalog-page-item">
 			<div className="container">
@@ -19,13 +25,13 @@ export const CatalogPageItem = () => {
 						<Link to="/catalog" className="breadcrumbs__link">Каталог</Link>
 					</li>
 					<li className="breadcrumbs__item">
-						<Link to="/catalog/:id" className="breadcrumbs__link">Дистиллятор для получения гидролата 8л</Link>
+						<Link to="/catalog/:id" className="breadcrumbs__link">{product.name}</Link>
 					</li>
 				</ul>
 			</div>
 
-			<CatalogItem />
-			<CatalogDescription />
+			<CatalogItem product={product} />
+			<CatalogDescription product={product} />
 			<CatalogReviews />
 			<CatalogProductsInterest />
 		</div>

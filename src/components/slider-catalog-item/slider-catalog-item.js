@@ -7,19 +7,11 @@ import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
 
-
-
 import './slider-catalog-item.scss';
 
-import hydrolate from '../../resources/images/OurProduction/hydrolate.png';
-import essentialOils from '../../resources/images/OurProduction/essential-oils.png';
-import copperAccessories from '../../resources/images/OurProduction/copper-accessories.png';
-import copperUtensils from '../../resources/images/OurProduction/copper-utensils.png';
-import individualOrder from '../../resources/images/OurProduction/individual-order.png';
 
+export const SliderCatalogItem = ({ product }) => {
 
-
-export const SliderCatalogItem = () => {
 	const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
 	return (
@@ -35,11 +27,9 @@ export const SliderCatalogItem = () => {
 				direction={"vertical"}
 				className="slider-left"
 			>
-				<SwiperSlide><img src={hydrolate} /></SwiperSlide>
-				<SwiperSlide><img src={essentialOils} /></SwiperSlide>
-				<SwiperSlide><img src={copperAccessories} /></SwiperSlide>
-				<SwiperSlide><img src={copperUtensils} /></SwiperSlide>
-				<SwiperSlide><img src={individualOrder} /></SwiperSlide>
+				{
+					product.images.map(image => <SwiperSlide key={image.id}><img src={image.image} /></SwiperSlide>)
+				}
 			</Swiper>
 
 			<Swiper
@@ -48,11 +38,9 @@ export const SliderCatalogItem = () => {
 				onSwiper={setThumbsSwiper}
 				className="slider-right"
 			>
-				<SwiperSlide><img src={hydrolate} /></SwiperSlide>
-				<SwiperSlide><img src={essentialOils} /></SwiperSlide>
-				<SwiperSlide><img src={copperAccessories} /></SwiperSlide>
-				<SwiperSlide><img src={copperUtensils} /></SwiperSlide>
-				<SwiperSlide><img src={individualOrder} /></SwiperSlide>
+				{
+					product.images.map(image => <SwiperSlide key={image.id}><img src={image.image} /></SwiperSlide>)
+				}
 			</Swiper>
 		</div>
 	)

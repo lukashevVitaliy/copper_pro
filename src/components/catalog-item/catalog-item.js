@@ -4,15 +4,15 @@ import { DescriptionCatalogItem } from '../description-catalog-item';
 
 import './catalog-item.scss';
 
-export const CatalogItem = () => {
+export const CatalogItem = ({ product }) => {
 	return (
 		<div className="container">
 			<div className="catalog-item">
 				<div className="catalog-item__slider">
-					<SliderCatalogItem />
+					<SliderCatalogItem product={product} />
 				</div>
 				<div className="catalog-item__data">
-					<DescriptionCatalogItem />
+					<DescriptionCatalogItem product={product} />
 				</div>
 			</div>
 		</div>

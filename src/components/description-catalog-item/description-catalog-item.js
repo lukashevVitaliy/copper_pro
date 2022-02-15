@@ -1,9 +1,21 @@
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+
 import { QuantityUnits } from '../quantity-units';
 import { SocialLinkCatalog } from '../social-link-catalog';
+import { setItemsInCart, deleteItemsInCart } from '../../store/reducers/cartSlice';
 
 import './description-catalog-item.scss';
 
 export const DescriptionCatalogItem = ({ product }) => {
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
+
+	const handleClick = (e) => {
+		e.stopPropagation();
+		dispatch(setItemsInCart(product));
+		navigate("/cart");
+	}
 
 	const { name, quantity, artikul, descriptionShort, priceOld, priceNew } = product;
 
@@ -26,7 +38,10 @@ export const DescriptionCatalogItem = ({ product }) => {
 					{priceOld ? <span className="description-catalog-item__price-old">{priceOld} грн</span> : null}
 				</div>
 				<QuantityUnits />
-				<button className="btn">Купить</button>
+				<button
+					className="btn"
+					onClick={handleClick}
+				>Купить</button>
 			</div>
 			<div className="description-catalog-item__social">
 				<span className="description-catalog-item__subject">Поделиться</span>

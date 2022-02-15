@@ -22,9 +22,9 @@ export const Header = () => {
 						<HeaderNav />
 					</div>
 					<div className="header__info">
-						<LikeBlock />
-						<UserBlock />
-						<CartBlock />
+						<Link to="#" style={{ color: "#031412" }}><LikeBlock /></Link>
+						<Link to="#" style={{ color: "#031412" }}><UserBlock /></Link>
+						<Link to="cart" style={{ color: "#031412" }}><CartBlock /></Link>
 					</div>
 				</div>
 			</div>

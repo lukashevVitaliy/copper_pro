@@ -10,11 +10,12 @@
 }
 
 .slider-left .swiper-slide {
-	max-width: 89px;
-	min-height: 98px;
+	width: 100%;
+	height: 98px;
 	img {
 		width: 100%;
-		object-fit: cover;
+		height: 100%;
+		object-fit: contain;
 	}
 }
 
@@ -22,17 +23,17 @@
 	position: absolute;
 	top: 0;
 	right: 0;
-	max-width: 565px;
+	width: 565px;
 	height: 622px;
 }
 
 .slider-right .swiper-slide {
-	max-width: 565px;
-	max-height: 622px;
+	width: 100%;
+	height: 100%;
 	img {
 		width: 100%;
 		height: 100%;
-		object-fit: cover;
+		object-fit: contain;
 	}
 }
 

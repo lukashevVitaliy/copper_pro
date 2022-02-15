@@ -1,9 +1,10 @@
-import { useEffect } from 'react';
-import { useHttp } from '../../hooks/http.hooks';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
+// import { useEffect } from 'react';
+// import { useHttp } from '../../hooks/http.hooks';
+// import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { productsFetching, productsFetched, productsFetchingError } from '../../store/reducers/productsSlice';
+// import { productsFetching, productsFetched, productsFetchingError } from '../../store/reducers/productsSlice';
 import { CatalogFilters } from '../../components/catalog-filters';
 import { CatalogPanel } from '../../components/catalog-panel';
 import { CardItem } from '../../components/card-item';
@@ -13,37 +14,40 @@ import { Spinner } from '../../components/spinner';
 import './catalog-page.scss';
 
 export const CatalogPage = () => {
-	const { products, productsLoadingStatus } = useSelector(state => state.products);
-	const dispatch = useDispatch();
-	const { request } = useHttp();
+	const productsList = useSelector(state => state.products.products);
 
-	useEffect(() => {
-		dispatch(productsFetching());
-		request("http://localhost:3001/products")
-			.then(data => dispatch(productsFetched(data)))
-			.catch(() => productsFetchingError())
-		// eslint-disable-next-line
-	}, [])
 
-	if (productsLoadingStatus === 'loading') {
-		return <Spinner />
-	} else if (productsLoadingStatus === 'error') {
-		return <h5 className="error">Ошибка загрузки данных...</h5>
-	}
+	// const { products, productsLoadingStatus } = useSelector(state => state.products);
+	// const dispatch = useDispatch();
+	// const { request } = useHttp();
 
-	const renderProductsList = (arr) => {
-		if (arr.length === 0) {
-			return <h5 className="message">Товар отсутствует...</h5>
-		}
+	// useEffect(() => {
+	// 	dispatch(productsFetching());
+	// 	request("http://localhost:3001/products")
+	// 		.then(data => dispatch(productsFetched(data)))
+	// 		.catch(() => productsFetchingError())
+	// 	// eslint-disable-next-line
+	// }, [])
 
-		return arr.map(product => {
-			return (
-				<CardItem key={product.id} product={product} />
-			)
-		})
-	}
+	// if (productsLoadingStatus === 'loading') {
+	// 	return <Spinner />
+	// } else if (productsLoadingStatus === 'error') {
+	// 	return <h5 className="error">Ошибка загрузки данных...</h5>
+	// }
 
-	const elements = renderProductsList(products);
+	// const renderProductsList = (arr) => {
+	// 	if (arr.length === 0) {
+	// 		return <h5 className="message">Товар отсутствует...</h5>
+	// 	}
+
+	// 	return arr.map(product => {
+	// 		return (
+	// 			<CardItem key={product.id} product={product} />
+	// 		)
+	// 	})
+	// }
+
+	// const elements = renderProductsList(products);
 
 	return (
 		<div className="catalog-page">
@@ -61,7 +65,15 @@ export const CatalogPage = () => {
 				<CatalogFilters />
 				<CatalogPanel />
 				<ul className="catalog-page__wrap">
-					{elements}
+					{
+						productsList.map(product => {
+							return (
+								<CardItem key={product.id} product={product} />
+							)
+						})
+					}
+
+					{/* {elements} */}
 				</ul>
 				<Pagination />
 			</div>

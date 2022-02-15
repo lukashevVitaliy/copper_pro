@@ -1,14 +1,18 @@
 @import "./variables.scss";
 
 .btn {
-	display: block;
+	display: inline-block;
 	background: linear-gradient(92.18deg, #5e3928 20.13%, #e4a16f 92.93%);
 	padding: 16px 131px;
+	font-family: "Mont";
 	font-size: 18px;
 	line-height: 17px;
 	text-align: center;
 	color: $white;
 	&__center {
+		position: relative;
+		left: 50%;
+		transform: translateX(-50%);
 		margin: 40px auto 0;
 	}
 	&__cart {

@@ -14,7 +14,8 @@
 		text-align: center;
 	}
 	&__icon {
-		position: relative;
+		position: absolute;
+		bottom: 13px;
 		cursor: pointer;
 	}
 }

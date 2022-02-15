@@ -8,10 +8,11 @@ import { Sales } from '../../components/sales';
 import { Reviews } from '../../components/reviews';
 import { Advantage } from '../../components/advantage';
 
-
 import './home-page.scss';
 
+
 export const HomePage = () => {
+
 	return (
 		<div className="home-page">
 			<div className="home-page__bestseller">

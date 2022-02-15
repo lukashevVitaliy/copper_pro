@@ -10,7 +10,7 @@ import { CatalogProductsInterest } from '../../components/catalog-products-inter
 import './catalog-page-item.scss';
 
 export const CatalogPageItem = () => {
-	const product = useSelector(state => state.products.currentProduct)
+	const product = useSelector(state => state.products.currentProduct);
 
 	if (!product) return null;
 

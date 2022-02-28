@@ -3,9 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { BsHeart } from 'react-icons/bs';
 
 import { setCurrentProduct } from "../../store/reducers/productsSlice";
-
-// import EssentialOils from '../../resources/images/OurProduction/essential-oils.png';
 import './card-item.scss';
+
 
 export const CardItem = ({ product }) => {
 	const navigate = useNavigate();
@@ -13,7 +12,7 @@ export const CardItem = ({ product }) => {
 
 	const handleClick = () => {
 		dispatch(setCurrentProduct(product));
-		navigate(`${product.id}`)
+		navigate(`${product.name}`)
 	}
 
 	const { thumbnail, name, priceOld, priceNew, sale } = product;

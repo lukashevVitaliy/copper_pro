@@ -47,7 +47,7 @@
 		line-height: 24px;
 		text-transform: uppercase;
 	}
-	&__quantity {
+	&__reserve {
 		font-weight: 600;
 		font-size: 20px;
 		line-height: 26px;
@@ -65,7 +65,7 @@
 				position: absolute;
 				top: 5px;
 				left: 0;
-				width: 60px;
+				width: 50%;
 				height: 1px;
 				background: $main;
 				transform: rotate(13.8deg);
@@ -77,6 +77,12 @@
 			line-height: 26px;
 			color: $bordo;
 		}
+	}
+	&__message {
+		margin-top: 30px;
+		@extend %h4-title;
+		color: #a2a2a2;
+		text-align: center;
 	}
 }
 

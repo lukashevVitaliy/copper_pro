@@ -3,7 +3,10 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
 	products: [],
 	productsLoadingStatus: 'idle',
-	currentProduct: {}
+	currentProduct: {},
+	currentPage: 1,
+	perPage: 9,
+	totalCount: 0
 }
 
 const productsSlice = createSlice({
@@ -22,6 +25,10 @@ const productsSlice = createSlice({
 		},
 		setCurrentProduct: (state, action) => {
 			state.currentProduct = action.payload;
+			state.totalCount = action.payload.total_count;
+		},
+		setCurrentPage: (state, action) => {
+			state.currentPage = action.payload;
 		}
 	}
 })
@@ -34,5 +41,6 @@ export const {
 	productsFetching,
 	productsFetched,
 	productsFetchingError,
-	setCurrentProduct
+	setCurrentProduct,
+	setCurrentPage
 } = actions;

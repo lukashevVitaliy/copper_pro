@@ -18,22 +18,7 @@ import './slider-products.scss';
 
 
 export const SliderProducts = () => {
-	const { products, productsLoadingStatus } = useSelector(state => state.products);
-	const dispatch = useDispatch();
-	const { request } = useHttp();
-
-	useEffect(() => {
-		dispatch(productsFetching());
-		request("http://localhost:3001/products")
-			.then(data => dispatch(productsFetched(data)))
-			.catch(() => productsFetchingError())
-	}, [])
-
-	if (productsLoadingStatus === 'loading') {
-		return <h5 className="loading">Загрузка данных...</h5>
-	} else if (productsLoadingStatus === 'error') {
-		return <h5 className="error">Ошибка загрузки данных...</h5>
-	}
+	const products = useSelector(state => state.products.products);
 
 	const renderProductsList = (arr) => {
 		if (arr.length === 0) {

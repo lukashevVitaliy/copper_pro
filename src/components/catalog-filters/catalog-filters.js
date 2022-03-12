@@ -1,40 +1,63 @@
-import EssentialOils from '../../resources/images/filters/essential-oils.jpg';
-import Hydrolate from '../../resources/images/filters/hydrolate.jpg';
-import CopperUtensils from '../../resources/images/filters/copper-utensils.jpg';
-import CopperAccessories from '../../resources/images/filters/copper-accessories.jpg';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+
+import { useHttp } from '../../hooks/http.hooks';
+import {
+	filtersFetching,
+	filtersFetched,
+	filtersFetchingError,
+	activeFilterChanged,
+} from '../../store/reducers/filtersProductSlice';
 
 import './catalog-filters.scss';
 
+
 export const CatalogFilters = () => {
+	const { filters, filtersLoadingStatus } = useSelector(state => state.filters);
+	const dispatch = useDispatch();
+	const { request } = useHttp();
+
+	useEffect(() => {
+		dispatch(filtersFetching());
+		request("http://localhost:3001/filters")
+			.then(data => dispatch(filtersFetched(data)))
+			.catch(() => filtersFetchingError())
+	}, [])
+
+	if (filtersLoadingStatus === 'loading') {
+		return <h5 className="loading">Загрузка данных...</h5>
+	} else if (filtersLoadingStatus === 'error') {
+		return <h5 className="error">Ошибка загрузки данных...</h5>
+	}
+
+	const renderFilters = (arr) => {
+
+		if (arr.length === 0) {
+			return <h5 className="text-center mt-5">Фильтры не найдены</h5>
+		}
+
+		return arr.map(({ name, label, thumbnail }) => {
+			return (
+				<button
+					className="catalog-filters__item"
+					id={name}
+					key={name}
+					onClick={() => dispatch(activeFilterChanged(name))}
+				>
+					<div className="catalog-filters__image">
+						<img src={thumbnail} alt={label} />
+					</div>
+					<span className="catalog-filters__text">{label}</span>
+				</button>
+			)
+		})
+	}
+
+	const elements = renderFilters(filters);
+
 	return (
 		<div className="catalog-filters">
-			<button className="catalog-filters__item">
-				<div className="catalog-filters__image">
-					<img src={EssentialOils} alt="Для эфирных масел" />
-				</div>
-				<span className="catalog-filters__text">Для эфирных масел</span>
-			</button>
-
-			<button className="catalog-filters__item">
-				<div className="catalog-filters__image">
-					<img src={Hydrolate} alt="Для гидролатов" />
-				</div>
-				<span className="catalog-filters__text">Для гидролатов</span>
-			</button>
-
-			<button className="catalog-filters__item">
-				<div className="catalog-filters__image">
-					<img src={CopperUtensils} alt="Медная посуда" />
-				</div>
-				<span className="catalog-filters__text">Медная посуда</span>
-			</button>
-
-			<button className="catalog-filters__item">
-				<div className="catalog-filters__image">
-					<img src={CopperAccessories} alt="Аксессуары из меди" />
-				</div>
-				<span className="catalog-filters__text">Аксессуары из меди</span>
-			</button>
+			{elements}
 		</div>
 	)
 }

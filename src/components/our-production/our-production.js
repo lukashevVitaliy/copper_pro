@@ -8,7 +8,8 @@ import IndividualOrder from '../../resources/images/OurProduction/individual-ord
 import Discounts from '../../resources/images/OurProduction/discounts.png';
 import './our-production.scss';
 
-export const OurProduction = () => {
+export const OurProduction = ({ products }) => {
+
 	return (
 		<div className="our-production">
 			<div className="container">

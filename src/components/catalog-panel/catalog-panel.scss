@@ -24,17 +24,19 @@
 		}
 	}
 	&__selected {
+		display: flex;
+		align-items: center;
 		label {
 			font-weight: 600;
 			font-size: 20px;
 			margin-right: 18px;
 		}
-		select {
+		&-select {
+			width: 210px;
 			font-weight: 800;
 			font-size: 20px;
 			line-height: 19px;
 			color: #031412;
-			border: none;
 		}
 	}
 }

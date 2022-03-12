@@ -4,6 +4,7 @@ const initialState = {
 	products: [],
 	productsLoadingStatus: 'idle',
 	currentProduct: {},
+
 	currentPage: 1,
 	perPage: 9,
 	totalCount: 0
@@ -27,6 +28,8 @@ const productsSlice = createSlice({
 			state.currentProduct = action.payload;
 			state.totalCount = action.payload.total_count;
 		},
+
+
 		setCurrentPage: (state, action) => {
 			state.currentPage = action.payload;
 		}
@@ -42,5 +45,6 @@ export const {
 	productsFetched,
 	productsFetchingError,
 	setCurrentProduct,
+
 	setCurrentPage
 } = actions;

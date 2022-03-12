@@ -988,6 +988,32 @@
 			"category": "copper utensils"
 		}
 	],
+	"filters": [
+		{
+			"id": "essential oil distillers",
+			"name": "essential oil distillers",
+			"label": "Для эфирных масел",
+			"thumbnail": "/products-covers/filters/essential-oils.jpg"
+		},
+		{
+			"id": "distiller for hydrolates",
+			"name": "distiller for hydrolates",
+			"label": "Для гидролатов",
+			"thumbnail": "/products-covers/filters/hydrolate.jpg"
+		},
+		{
+			"id": "copper utensils",
+			"name": "copper utensils",
+			"label": "Медная посуда",
+			"thumbnail": "/products-covers/filters/copper-utensils.jpg"
+		},
+		{
+			"id": "accessories",
+			"name": "accessories",
+			"label": "Аксессуары из меди",
+			"thumbnail": "/products-covers/filters/copper-accessories.jpg"
+		}
+	],
 	"reviews": [
 		{
 			"id": "r1",

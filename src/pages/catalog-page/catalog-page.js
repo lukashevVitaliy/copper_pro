@@ -1,10 +1,10 @@
-import { useSelector } from 'react-redux';
-// import { useEffect } from 'react';
-// import { useHttp } from '../../hooks/http.hooks';
-// import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useHttp } from '../../hooks/http.hooks';
+import { useDispatch, useSelector } from 'react-redux';
+import { createSelector } from '@reduxjs/toolkit';
 import { Link } from 'react-router-dom';
 
-// import { productsFetching, productsFetched, productsFetchingError } from '../../store/reducers/productsSlice';
+import { productsFetching, productsFetched, productsFetchingError } from '../../store/reducers/productsSlice';
 import { CatalogFilters } from '../../components/catalog-filters';
 import { CatalogPanel } from '../../components/catalog-panel';
 import { CardItem } from '../../components/card-item';
@@ -14,40 +14,68 @@ import { Spinner } from '../../components/spinner';
 import './catalog-page.scss';
 
 export const CatalogPage = () => {
-	const productsList = useSelector(state => state.products.products);
 
+	const filteredProductSelector = createSelector(
+		(state) => state.filters.activeFilter,
+		(state) => state.filters.searchFilter,
+		(state) => state.filters.sortBiPrice,
+		(state) => state.products.products,
 
-	// const { products, productsLoadingStatus } = useSelector(state => state.products);
-	// const dispatch = useDispatch();
-	// const { request } = useHttp();
+		(activeFilter, searchFilter, sortBiPrice, products) => {
+			if (activeFilter) {
+				return products.filter(product => product.category === activeFilter);
+			} else if (searchFilter) {
+				return products.filter(product => product.name.toLowerCase().includes(searchFilter.toLowerCase()))
+			} else if (sortBiPrice) {
+				if (sortBiPrice.value === 'upSales') {
+					const array = products.filter(product => {
+						return product.priceNew;
+					})
+					return array.sort((a, b) => a.priceNew > b.priceNew ? 1 : -1);
+				} else if (sortBiPrice.value === 'downSales') {
+					const array = products.filter(product => {
+						return product.priceNew;
+					})
+					return array.sort((a, b) => a.priceNew < b.priceNew ? 1 : -1);
+				}
+				return products;
+			}
+		}
+	)
 
-	// useEffect(() => {
-	// 	dispatch(productsFetching());
-	// 	request("http://localhost:3001/products")
-	// 		.then(data => dispatch(productsFetched(data)))
-	// 		.catch(() => productsFetchingError())
-	// 	// eslint-disable-next-line
-	// }, [])
+	const filteredProduct = useSelector(filteredProductSelector);
 
-	// if (productsLoadingStatus === 'loading') {
-	// 	return <Spinner />
-	// } else if (productsLoadingStatus === 'error') {
-	// 	return <h5 className="error">Ошибка загрузки данных...</h5>
-	// }
+	const { productsLoadingStatus } = useSelector(state => state.products.productsLoadingStatus);
+	const dispatch = useDispatch();
+	const { request } = useHttp();
 
-	// const renderProductsList = (arr) => {
-	// 	if (arr.length === 0) {
-	// 		return <h5 className="message">Товар отсутствует...</h5>
-	// 	}
+	useEffect(() => {
+		dispatch(productsFetching());
+		request("http://localhost:3001/products")
+			.then(data => dispatch(productsFetched(data)))
+			.catch(() => productsFetchingError())
+		// eslint-disable-next-line
+	}, [])
 
-	// 	return arr.map(product => {
-	// 		return (
-	// 			<CardItem key={product.id} product={product} />
-	// 		)
-	// 	})
-	// }
+	if (productsLoadingStatus === 'loading') {
+		return <Spinner />
+	} else if (productsLoadingStatus === 'error') {
+		return <h5 className="error">Ошибка загрузки данных...</h5>
+	}
 
-	// const elements = renderProductsList(products);
+	const renderProductsList = (arr) => {
+		if (arr.length === 0) {
+			return <h5 className="message">Товар отсутствует...</h5>
+		}
+
+		return arr.map(product => {
+			return (
+				<CardItem key={product.id} product={product} />
+			)
+		})
+	}
+
+	const elements = renderProductsList(filteredProduct);
 
 	return (
 		<div className="catalog-page">
@@ -65,15 +93,7 @@ export const CatalogPage = () => {
 				<CatalogFilters />
 				<CatalogPanel />
 				<ul className="catalog-page__wrap">
-					{
-						productsList.map(product => {
-							return (
-								<CardItem key={product.id} product={product} />
-							)
-						})
-					}
-
-					{/* {elements} */}
+					{elements}
 				</ul>
 				<Pagination />
 			</div>

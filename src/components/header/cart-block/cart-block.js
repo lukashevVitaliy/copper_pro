@@ -10,7 +10,7 @@ export const CartBlock = () => {
 	return (
 		<div className="cart-block">
 			<div className="cart-block__quantity">
-				{items == 0 ? null : <span>{items.length}</span>}
+				{items == 0 ? null : <span>{items.reduce((acc, itemsInCart) => acc += itemsInCart.quantity, 0)}</span>}
 			</div>
 
 			<AiOutlineShoppingCart

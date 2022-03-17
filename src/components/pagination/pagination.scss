@@ -7,19 +7,24 @@
 		justify-content: center;
 		align-items: center;
 	}
-	&__item {
+	&__item,
+	&__arrow {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		margin-right: 9px;
+		margin-left: 5px;
+		margin-right: 5px;
 		width: 38px;
 		height: 48px;
 		border: 1px solid #b3b9b8;
+		border-radius: 5px;
 		&:last-child {
 			margin-right: 0;
 		}
 	}
+
 	&__link {
+		padding: 11px;
 		font-weight: 600;
 		font-size: 25px;
 		line-height: 24px;
@@ -27,7 +32,7 @@
 	}
 }
 
-.pagination__item.active {
+.pagination__item-active {
 	background: linear-gradient(92.18deg, #5e3928 20.13%, #e4a16f 92.93%);
 	.pagination__link {
 		color: $white;

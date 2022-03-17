@@ -1,19 +1,20 @@
-import { useEffect } from 'react';
-import { useHttp } from '../../hooks/http.hooks';
-import { useDispatch, useSelector } from 'react-redux';
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { createSelector } from '@reduxjs/toolkit';
 import { Link } from 'react-router-dom';
 
-import { productsFetching, productsFetched, productsFetchingError } from '../../store/reducers/productsSlice';
 import { CatalogFilters } from '../../components/catalog-filters';
 import { CatalogPanel } from '../../components/catalog-panel';
-import { CardItem } from '../../components/card-item';
+import { CatalogList } from '../../components/catalog-list';
 import { Pagination } from '../../components/pagination';
-import { Spinner } from '../../components/spinner';
+// import { PaginationRounded } from '../../components/pagination-catalog';
 
 import './catalog-page.scss';
 
+
 export const CatalogPage = () => {
+	const [currentPage, setCurrentPage] = useState(1);
+	const [productsPerPage] = useState(6);
 
 	const filteredProductSelector = createSelector(
 		(state) => state.filters.activeFilter,
@@ -37,7 +38,10 @@ export const CatalogPage = () => {
 						return product.priceNew;
 					})
 					return array.sort((a, b) => a.priceNew < b.priceNew ? 1 : -1);
+				} else {
+					return products;
 				}
+			} else {
 				return products;
 			}
 		}
@@ -45,37 +49,27 @@ export const CatalogPage = () => {
 
 	const filteredProduct = useSelector(filteredProductSelector);
 
-	const { productsLoadingStatus } = useSelector(state => state.products.productsLoadingStatus);
-	const dispatch = useDispatch();
-	const { request } = useHttp();
+	// определяем индексы первой и последней страниц
+	const lastProductsIndex = currentPage * productsPerPage;
+	const firstProductsIndex = lastProductsIndex - productsPerPage;
+	// текущая страница
+	const currentProductPage = filteredProduct.slice(firstProductsIndex, lastProductsIndex);
+	// всего товаров
+	const totalProducts = filteredProduct.length;
+	// переход по страницам
+	const paginate = pageNumber => setCurrentPage(pageNumber);
+	// активация стрелок prev, next страниц
+	const totalPage = totalProducts / productsPerPage;
+	let nextPage, prevPage;
 
-	useEffect(() => {
-		dispatch(productsFetching());
-		request("http://localhost:3001/products")
-			.then(data => dispatch(productsFetched(data)))
-			.catch(() => productsFetchingError())
-		// eslint-disable-next-line
-	}, [])
-
-	if (productsLoadingStatus === 'loading') {
-		return <Spinner />
-	} else if (productsLoadingStatus === 'error') {
-		return <h5 className="error">Ошибка загрузки данных...</h5>
+	if (currentPage < totalPage) {
+		nextPage = () => setCurrentPage(currentPage => currentPage + 1);
 	}
 
-	const renderProductsList = (arr) => {
-		if (arr.length === 0) {
-			return <h5 className="message">Товар отсутствует...</h5>
-		}
-
-		return arr.map(product => {
-			return (
-				<CardItem key={product.id} product={product} />
-			)
-		})
+	if (currentPage > 1) {
+		prevPage = () => setCurrentPage(currentPage => currentPage - 1);
 	}
 
-	const elements = renderProductsList(filteredProduct);
 
 	return (
 		<div className="catalog-page">
@@ -92,10 +86,22 @@ export const CatalogPage = () => {
 				<h2 className="catalog-page__title">Каталог</h2>
 				<CatalogFilters />
 				<CatalogPanel />
-				<ul className="catalog-page__wrap">
-					{elements}
-				</ul>
-				<Pagination />
+				<CatalogList
+					filteredProduct={currentProductPage}
+				/>
+				<Pagination
+					productsPerPage={productsPerPage}
+					totalProducts={totalProducts}
+					paginate={paginate}
+					nextPage={nextPage}
+					prevPage={prevPage}
+				/>
+
+				{/* <PaginationRounded
+					productsPerPage={productsPerPage}
+					totalProducts={totalProducts}
+					paginate={paginate}
+				/> */}
 			</div>
 		</div>
 

@@ -1,0 +1,12 @@
+@import "../../styles/variables.scss";
+
+.catalog-list {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(290px, 445px));
+	grid-auto-rows: minmax(567px, auto);
+	column-gap: 30px;
+	row-gap: 44px;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 54px;
+}

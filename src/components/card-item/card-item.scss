@@ -8,7 +8,6 @@
 	max-width: 445px;
 	height: 100%;
 	transition: 0.3s all;
-	cursor: pointer;
 	&:hover {
 		box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
 	}
@@ -28,6 +27,7 @@
 		align-items: flex-end;
 		color: $main;
 		padding: 0 10px 10px;
+		cursor: pointer;
 	}
 	&__text {
 		width: 250px;
@@ -70,8 +70,13 @@
 		right: 0;
 		width: 50px;
 		height: 63px;
-		background: $white;
+		cursor: default;
+		svg {
+			fill: rgba(0, 0, 0, 0.2);
+			cursor: pointer;
+		}
 	}
+
 	&__sale {
 		position: absolute;
 		top: 27px;
@@ -84,5 +89,13 @@
 		text-align: center;
 		text-transform: uppercase;
 		color: $white;
+	}
+	.active {
+		fill: $bordo;
+		transition: 0.3s all;
+	}
+	.active-small {
+		width: 22px;
+		height: 22px;
 	}
 }
